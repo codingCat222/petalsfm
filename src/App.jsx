@@ -32,8 +32,8 @@ export default function App() {
       </main>
       <Footer />
       <LivePlayer />
+      <CallButton />
       <WhatsAppButton />
-      {/* <CallButton /> */}
     </BrowserRouter>
   );
 }

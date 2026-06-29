@@ -1,0 +1,650 @@
+/* src/pages/OAPs.css */
+
+/* Canvas Background */
+.oaps-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.oaps-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: radial-gradient(circle at center, rgba(10, 22, 40, 0.7) 0%, rgba(10, 22, 40, 0.92) 100%);
+  pointer-events: none;
+}
+
+.oaps-main {
+  position: relative;
+  z-index: 2;
+}
+
+/* OAPs Page */
+.oaps-page {
+  padding: 60px 0 80px;
+  position: relative;
+}
+
+/* Intro Section */
+.oaps-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.oaps-intro-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 24px;
+  background: rgba(255, 0, 64, 0.1);
+  border: 1px solid rgba(255, 0, 64, 0.2);
+  border-radius: 50px;
+  color: #ff0040;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.oaps-intro-badge i {
+  font-size: 14px;
+}
+
+.oaps-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.oaps-heading .highlight {
+  color: #ff0040;
+  position: relative;
+}
+
+.oaps-heading .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff0040, transparent);
+}
+
+.oaps-intro p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* OAPs Grid - 3 Cards */
+.oaps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+/* OAP Card */
+.oap-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.oap-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 0, 64, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.oap-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.oap-img-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 75%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a1628, #1a0a20);
+}
+
+.oap-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.oap-card:hover .oap-image {
+  transform: scale(1.05);
+}
+
+.oap-img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.6));
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+}
+
+.oap-onair-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(255, 0, 64, 0.9);
+  border-radius: 50px;
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  height: fit-content;
+}
+
+.blink-dot {
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+  border-radius: 50%;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+.oap-card-body {
+  padding: 20px 24px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.oap-name {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  transition: color 0.3s ease;
+  margin: 0;
+}
+
+.oap-card-role {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  margin: 0;
+}
+
+.oap-card-show {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
+}
+
+.oap-card-show i {
+  color: #ff0040;
+  font-size: 12px;
+}
+
+.oap-card-time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.oap-card-time i {
+  font-size: 11px;
+}
+
+.oap-card-btn {
+  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(255, 0, 64, 0.1);
+  border: 1px solid rgba(255, 0, 64, 0.2);
+  border-radius: 50px;
+  color: #ff0040;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.oap-card-btn:hover {
+  background: rgba(255, 0, 64, 0.2);
+  border-color: #ff0040;
+  gap: 12px;
+}
+
+.oap-card-btn i {
+  font-size: 11px;
+  transition: transform 0.3s ease;
+}
+
+.oap-card-btn:hover i {
+  transform: translateX(4px);
+}
+
+/* Modal */
+.oap-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+}
+
+.oap-modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.oap-modal-content {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: linear-gradient(135deg, #0a1628, #1a0a20);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+  padding: 40px;
+}
+
+/* Scrollbar styling for modal */
+.oap-modal-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.oap-modal-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.oap-modal-content::-webkit-scrollbar-thumb {
+  background: #ff0040;
+  border-radius: 4px;
+}
+
+.oap-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.oap-modal-close:hover {
+  background: rgba(255, 0, 64, 0.2);
+  border-color: #ff0040;
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+.oap-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.oap-modal-image {
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a1628, #1a0a20);
+  aspect-ratio: 3/4;
+}
+
+.oap-modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.oap-modal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.oap-modal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 14px;
+  background: rgba(255, 0, 64, 0.15);
+  border-radius: 50px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  color: #ff0040;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: fit-content;
+}
+
+.oap-modal-badge .blink-dot {
+  background: #ff0040;
+}
+
+.oap-modal-name {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.oap-modal-role {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  margin: -4px 0 4px;
+}
+
+.oap-modal-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 4px 0;
+}
+
+.oap-modal-detail {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.oap-modal-detail i {
+  font-size: 18px;
+  color: #ff0040;
+  width: 24px;
+  text-align: center;
+}
+
+.oap-modal-detail div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detail-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.detail-value {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.oap-modal-description {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin: 4px 0;
+}
+
+.oap-modal-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background: rgba(255, 0, 64, 0.15);
+  border-color: #ff0040;
+  color: #ff0040;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .oaps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 100%;
+  }
+
+  .oaps-page {
+    padding: 40px 0 60px;
+  }
+
+  .oaps-intro {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .oaps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .oap-modal-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .oap-modal-image {
+    aspect-ratio: 16/9;
+    max-height: 250px;
+  }
+
+  .oap-modal-content {
+    padding: 24px;
+  }
+
+  .oap-modal-name {
+    font-size: 26px;
+  }
+
+  .oap-card-body {
+    padding: 16px 18px 20px;
+  }
+
+  .oap-card-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .oaps-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 380px;
+  }
+
+  .oap-modal-content {
+    padding: 16px;
+  }
+
+  .oap-modal-name {
+    font-size: 22px;
+  }
+
+  .oap-modal-detail {
+    padding: 10px 14px;
+  }
+
+  .oap-modal-detail i {
+    font-size: 16px;
+    width: 20px;
+  }
+
+  .oap-modal-social {
+    gap: 8px;
+  }
+
+  .social-link {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .oaps-intro-badge {
+    font-size: 10px;
+    padding: 6px 16px;
+  }
+
+  .oaps-heading {
+    font-size: clamp(24px, 6vw, 30px);
+  }
+
+  .oaps-intro p {
+    font-size: 14px;
+  }
+
+  .oap-name {
+    font-size: 16px;
+  }
+
+  .oap-card-role {
+    font-size: 12px;
+  }
+
+  .oap-card-show {
+    font-size: 12px;
+  }
+
+  .oap-card-time {
+    font-size: 11px;
+  }
+}
+
+/* Small height screens */
+@media (max-height: 600px) {
+  .oap-modal-content {
+    padding: 16px;
+  }
+
+  .oap-modal-image {
+    max-height: 150px;
+  }
+
+  .oap-modal-grid {
+    gap: 16px;
+  }
+
+  .oap-modal-name {
+    font-size: 20px;
+  }
+
+  .oap-modal-details {
+    gap: 8px;
+  }
+
+  .oap-modal-detail {
+    padding: 8px 12px;
+  }
+
+  .oap-modal-close {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+}

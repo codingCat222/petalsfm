@@ -1,0 +1,235 @@
+/* src/components/home/NewsCarousel.css */
+
+.news-section {
+  padding: 80px 0;
+  background: var(--off-white);
+}
+
+.news-section .item--sub-title {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--red);
+  margin-bottom: 12px;
+}
+
+.news-section .item--sub-title .line-left {
+  display: inline-block;
+  width: 32px;
+  height: 2px;
+  background: var(--red);
+  margin-right: 10px;
+}
+
+.news-section .item--sub-title .line-right {
+  display: inline-block;
+  width: 32px;
+  height: 2px;
+  background: var(--red);
+  margin-left: 10px;
+}
+
+.news-section .item--title {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 40px;
+}
+
+.news-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  min-height: 200px;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--light-gray);
+  border-top: 4px solid var(--red);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.news-loading p {
+  margin-top: 16px;
+  color: var(--dark-gray);
+}
+
+.news-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.news-carousel-slide {
+  position: relative;
+}
+
+.news-card.featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.news-card.featured .news-card-img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.news-card.featured .news-card-body {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.news-card-category {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(255,0,64,0.08);
+  color: var(--red);
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  align-self: flex-start;
+}
+
+.news-card.featured .news-card-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.news-card.featured .news-card-excerpt {
+  font-size: 15px;
+  color: var(--dark-gray);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.news-card-meta {
+  font-size: 12px;
+  color: var(--mid-gray);
+}
+
+.news-card-meta i {
+  color: var(--red);
+  margin-right: 4px;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.95);
+  border: none;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--navy);
+  transition: all var(--transition);
+  z-index: 2;
+}
+
+.carousel-btn:hover {
+  background: var(--red);
+  color: var(--white);
+}
+
+.carousel-btn.prev {
+  left: 16px;
+}
+
+.carousel-btn.next {
+  right: 16px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.carousel-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gray);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.carousel-dots .dot.active {
+  background: var(--red);
+  width: 28px;
+  border-radius: var(--radius-full);
+}
+
+@media (max-width: 768px) {
+  .news-card.featured {
+    grid-template-columns: 1fr;
+  }
+  .news-card.featured .news-card-img {
+    height: 200px;
+  }
+  .news-card.featured .news-card-body {
+    padding: 24px;
+  }
+  .news-card.featured .news-card-title {
+    font-size: 18px;
+  }
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+}
+
+.news-error {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.news-error p {
+  color: var(--dark-gray);
+  margin-bottom: 16px;
+}
+
+.news-error .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}

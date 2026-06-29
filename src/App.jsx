@@ -33,7 +33,7 @@ export default function App() {
       <Footer />
       <LivePlayer />
       <WhatsAppButton />
-      <CallButton />
+      {/* <CallButton /> */}
     </BrowserRouter>
   );
 }
